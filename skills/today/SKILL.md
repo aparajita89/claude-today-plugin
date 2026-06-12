@@ -12,12 +12,38 @@ version: 1.0.0
 
 # /today Skill
 
-> **Setup**: Before using, search-replace the placeholders below with your own values:
-> - `{DAILY_NOTES_DIR}` -- absolute path to your daily notes folder (e.g., `~/notes/daily updates`)
-> - `{GOALS_FILE}` -- path to your long-term goals / project index file
-> - `{DRIVE_FALLBACK_URL}` -- (optional) Google Drive folder URL if you want cloud fallback
-> - Review the **day-of-week guidelines** in Step 2 and rewrite them to match your own rhythms.
-> - Review **Step 5 (distress regulation)** and adjust the grounding script to what works for you.
+## First-run setup (Step -1)
+
+**Before executing any other step**, read this file and check whether the literal strings `{DAILY_NOTES_DIR}`, `{GOALS_FILE}`, or `{DRIVE_FALLBACK_URL}` still exist in it. If ANY of them are present, the skill has not been configured yet. Run the interactive setup below. Do NOT proceed to Step 0 until setup is complete.
+
+### Interactive setup flow
+
+Walk the user through each placeholder one at a time. For each one, ask the question, wait for the answer, then apply the replacement before moving on.
+
+1. **Daily notes directory**
+   Ask: "Where do you keep your daily notes? Give me an absolute path to the folder. (e.g., `~/Documents/notes/daily` or `~/obsidian-vault/daily updates`)"
+   Replace every instance of `{DAILY_NOTES_DIR}` in this file with their answer.
+
+2. **Goals / project index file**
+   Ask: "Do you have a file that tracks your long-term goals or active projects? If yes, give me the path. If no, type `skip` and I'll remove the goal-tracking references."
+   - If they provide a path: replace `{GOALS_FILE}` with their answer.
+   - If they say skip: replace the `{GOALS_FILE}` block and all goal-related cross-reference instructions with a comment: `<!-- goals file not configured -->`.
+
+3. **Google Drive fallback (optional)**
+   Ask: "Do you want a Google Drive fallback for when your local filesystem isn't available? If yes, paste the Drive folder URL. If no, type `skip`."
+   - If they provide a URL: replace `{DRIVE_FALLBACK_URL}` with their answer.
+   - If they say skip: replace the entire "Fallback: Google Drive" subsection with a comment: `<!-- drive fallback not configured -->`.
+
+4. **Day-of-week guidelines**
+   Show them the current day-of-week table from Step 2 and ask: "These are the default energy/mode guidelines for each day. Want to customize any of them now, or use the defaults and tweak later?"
+   - If they want to customize: walk through each day and update the table.
+   - If they say later: leave the defaults.
+
+5. **Confirm**
+   After all replacements, say: "Setup complete. Your /today skill is configured. Run `/today` again to start planning."
+   Write the updated file back. Do NOT proceed to Step 0 in this same invocation -- let the user trigger a fresh run so the skill loads with resolved values.
+
+---
 
 ## Overview
 
