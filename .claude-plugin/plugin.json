@@ -1,0 +1,9 @@
+{
+  "name": "today",
+  "description": "Daily planning and bandwidth regulation skill for Claude Code. Manages morning planning, mid-day check-ins, distress regulation, and EOD wrap-up using markdown daily notes as the single source of truth.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Aparajita Singh",
+    "url": "https://github.com/aparajitasingh-api"
+  }
+}
